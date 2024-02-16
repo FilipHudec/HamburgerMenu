@@ -1,0 +1,47 @@
+
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        --tickness: 8px;
+        display: block;
+        height: calc(var(--tickness) * 5);
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .menu-toggle span{
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+        height: var(--tickness);
+        background-color: #000;
+        border-radius: calc(var(--tickness) / 2);
+        transform-origin:  center;
+        transition: transform 0.5s .5s, opacity 0.25s;
+    }
+
+    .menu-toggle span:nth-child(1) {
+        top: 0;
+    }
+
+    .menu-toggle span:nth-child(2) {
+        top: calc(50% - var(--tickness) / 2);
+    }
+
+    .menu-toggle span:nth-child(3) {
+        bottom: 0;
+    }
+
+    .menu-toggle--active  span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle--active  span:nth-child(1) {
+        transform: translateY(calc(var(--tickness) * 2)) rotate(45deg);
+    }
+
+    .menu-toggle--active  span:nth-child(3) {
+        transform: translateY(calc(var(--tickness) * -2)) rotate(-45deg);
+    }
+}
